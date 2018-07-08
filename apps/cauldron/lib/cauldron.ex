@@ -3,16 +3,28 @@ defmodule Cauldron do
   Documentation for Cauldron.
   """
 
-  @doc """
-  Hello world.
+  defmacro __using__(_opts) do
+    quote do
+      import Cauldron
+    end
+  end
 
-  ## Examples
 
-      iex> Cauldron.hello
-      :world
+  def top_level_component(params) do
+    _top_lvl = %{
+      level: :top,
+      html: container(params)
+    }
+  end
 
-  """
-  def hello do
-    :world
+  # def final_render(_top_lvl_component) do
+  #   raw "Hi"
+  # end
+
+  defp container([:responsive_flexbox, alignment: "dead-centre"]) do
+    """
+    <div class="container">
+    </div>
+    """
   end
 end
