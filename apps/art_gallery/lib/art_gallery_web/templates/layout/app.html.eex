@@ -13,8 +13,10 @@
 
   <body>
     <main role="main">
-      <%= render @view_module, @view_template, assigns %>
+
+    <%# cauldron_render_root is inside the View module %>
+    <%= cauldron_render_root %>
+
     </main>
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

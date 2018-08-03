@@ -1,23 +1,27 @@
 defmodule ArtGalleryWeb.LayoutView do
   use ArtGalleryWeb, :view
-  use Cauldron, :layout_view
+  # use Cauldron, :layout_view
+
+  def cauldron_render_root() do
+    "Cauldron, MVP."
+  end
 
   @doc """
   This function is where the rubber hits the road.
 
   Converts .exs into valid HTML/CSS/JS & embedded into templates/layout/app.html.eex
   """
-  def render_root() do
-    t = top_level_component([:responsive_flexbox, alignment: "dead-centre"])
-    # |> add_pipeline_trigger(:page_dimensions)
-    # |> add_pipeline_trigger(:global_state_tree)
-    # |> calculate_layout
-    # |> render_sub_components
-    # |> text_frame tag: :h1, content: "Bubble, bubble, toil 'nd trouble!" # add a single component
-    # |> final_render
+  # def render_root() do
+  #   t = top_level_component([:responsive_flexbox, alignment: "dead-centre"])
+  #   # |> add_pipeline_trigger(:page_dimensions)
+  #   # |> add_pipeline_trigger(:global_state_tree)
+  #   # |> calculate_layout
+  #   # |> render_sub_components
+  #   # |> text_frame tag: :h1, content: "Bubble, bubble, toil 'nd trouble!" # add a single component
+  #   # |> final_render
 
-    raw t.html
-  end
+  #   raw t.html
+  # end
 
   # def calculate_layout(top_level_component) do
   #   dimensions = fetch_dimensions(top_level_component)
