@@ -2,8 +2,29 @@ defmodule ArtGalleryWeb.LayoutView do
   use ArtGalleryWeb, :view
   # use Cauldron, :layout_view
 
-  def cauldron_render_root() do
+  def cauldron_render_root(:mvp) do
     "Cauldron, MVP."
+  end
+
+  def cauldron_render_root(:bubble_bubble_toil_n_trubl) do
+    "Hello, world."
+    |> flexbox(alignment: "bulls-eye")
+  end
+
+  @doc """
+  OO people would call this a decorator - we'll wrap the inner component in a flexbox
+  """
+  def flexbox(inner_component, _opts) do
+    raw ~s(
+      <div style="display:flex; margin:0; width: 100vw; height:100vh; align-items:center; justify-content:center;">
+      #{inner_component}
+      <div>
+      <script>#{inject_js()}</script>
+    )
+  end
+
+  def inject_js() do
+    "alert(\"Boosters are go!!\");"
   end
 
   @doc """

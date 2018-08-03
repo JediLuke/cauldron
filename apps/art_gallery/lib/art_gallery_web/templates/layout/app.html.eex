@@ -15,7 +15,7 @@
     <main role="main">
 
     <%# cauldron_render_root is inside the View module %>
-    <%= cauldron_render_root %>
+    <%= cauldron_render_root :bubble_bubble_toil_n_trubl %>
 
     </main>
   </body>
