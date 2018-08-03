@@ -5,15 +5,21 @@ defmodule Cauldron do
 
   defmacro __using__(_opts) do
     quote do
+      @behaviour Cauldron.ComponentBehaviour
       import Cauldron
 
+      # this is the function called inside app.html.eex, must be defined
+      # here 'cause I want access to Phownix.View.raw
+      def cauldron(:brew) do
+        raw cauldron_render_root()
+      end
     end
   end
 
-  def cauldron(:brew) do
-    "Hello, world."
-    |> flexbox(alignment: "bulls-eye")
-  end
+  # def cauldron_actual() do
+  #   "Hello, world."
+  #   |> flexbox(alignment: "bulls-eye")
+  # end
 
 
   @doc """
@@ -36,6 +42,7 @@ defmodule Cauldron do
   # This function is where the rubber hits the road.
   # Converts .exs into valid HTML/CSS/JS & embedded into templates/layout/app.html.eex
 
+  # NOTE: This may actually be worth putting back into view
   # def render_root() do
   #   t = top_level_component([:responsive_flexbox, alignment: "dead-centre"])
   #   # |> add_pipeline_trigger(:page_dimensions)
